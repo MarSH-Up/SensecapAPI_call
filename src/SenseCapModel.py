@@ -1,7 +1,7 @@
 import json
 import requests
 from SensorInfo import get_sensor_name, get_sensor_value, get_sensor_unit
-
+from SendMessage import sendWhatsApp
 # Request Parameters
 host = 'https://sensecap.seeed.cc/openapi/view_latest_telemetry_data'
 device_eui = '?device_eui=2CF7F1C0443001A0'
@@ -27,3 +27,6 @@ for sensor_id in sensorsInfo:
             f'Request failed with status code {response.status_code}: {response.text}')
 
 print(DataExtracted)
+
+if (DataExtracted['Air Temperature'] < 19):
+    sendWhatsApp('Its cold outside, check your plants')
