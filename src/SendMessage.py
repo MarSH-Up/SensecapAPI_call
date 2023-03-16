@@ -1,9 +1,17 @@
 from twilio.rest import Client
 
+import json
+
+# Open the JSON file and load its contents
+with open('../credentials.json') as json_file:
+    data = json.load(json_file)
+
+# Get the values of account_sid and auth_token from the loaded JSON data
+
 
 def sendWhatsApp(message_string):
-    account_sid = 'AC17d5d8f84a6367c55cb58d7148853294'
-    auth_token = '8251d9ef41db733cccfb7ff85ce4caba'
+    account_sid = data['account_sid']
+    auth_token = data['auth_token']
     client = Client(account_sid, auth_token)
 
     message = client.messages.create(
