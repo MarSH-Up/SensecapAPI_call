@@ -23,7 +23,7 @@ This project uses the [SenseCAP S2120 8-in-1 LoRaWAN Weather Sensor](https://www
 - Light Intensity
 - UV Index
 
-Each one independently every 20 minutes using LoRaWAN from Helium coverage.  
+Each one independently every 20 minutes using LoRaWAN from Helium coverage. Check the full project story in [Hackser.io](https://www.hackster.io/MarsUpM/sensecap-s2120-8-in-1-lorawan-weather-sensor-063603). 
 
 ## Docs & Resources
 
