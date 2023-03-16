@@ -51,8 +51,5 @@ while (x):
         sendWhatsApp(
             'We need to water the plants, the air humidity is ideal')
 
-    counter = counter + 1
-    print(counter)
+    # Note: For now it is runing forever in a raspberry py
     time.sleep(1400)
-    if (counter == 3):
-        break
