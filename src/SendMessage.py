@@ -3,7 +3,7 @@ from twilio.rest import Client
 import json
 
 # Open the JSON file and load its contents
-with open('../credentials.json') as json_file:
+with open('src/credentials.json') as json_file:
     data = json.load(json_file)
 
 # Get the values of account_sid and auth_token from the loaded JSON data

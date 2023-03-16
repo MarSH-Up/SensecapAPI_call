@@ -11,32 +11,41 @@
 </div>
 
 
+This repository is a small project that will work as an example of how to request the Sensecap API data using a minimal configuration to recompile all the data recompiled by the nodes or gateways deployed. 
+
+This project uses the [SenseCAP S2120 8-in-1 LoRaWAN Weather Sensor](https://www.seeedstudio.com/sensecap-s2120-lorawan-8-in-1-weather-sensor-p-5436.html) to help a local farm in a community in Puebla, México, to take care of the crops they have as local production for the community. The station recompile:
+- Air Temperature
+- Air Humidity
+- Barometric Pressure
+- Rain Hourly
+- Wind Speed
+- Wind Direction 
+- Light Intensity
+- UV Index
+
+Each one independently every 20 minutes using LoRaWAN from Helium coverage.  
 
 ## Docs & Resources
 
-- [ClickUp API](https://clickup.com/api/)
-- [Axios](https://axios-http.com/docs/intro)
+- [SenseCAP API](https://sensecap-docs.seeed.cc/introduction.html)
+- [twilio](https://www.twilio.com/en-us/messaging/programmable-messaging-api)
+
 
 ## Running and building the app
 
 ```
 #Install libraries
-$ python pip install 
+$ python pip install twilio
 
-# Development
-$ npm run dev
-
-# build producton
-$ npm run build
-
+# Run
+$ python src/SenseCapModel.py 
 ```
 
 ## Requirements
 
 <div align='left'>
     <ul>
-        <li>You may need to generate you API key from ClickUp</li>
-        <li>Project is created for an specific space, you may need to change it to use another. <i>Check the helper: getTasks</i></li>
+        <li>You may need to generate you API key from <a href='http://sensecap.seeed.cc/portal/#/dashboard'>SenseCAP Dashboard</a></li>
     </ul>
 </div>
 
@@ -44,14 +53,7 @@ $ npm run build
 
 <div align='left'>
     <ul>
-        <li>Identify the user that updated the task.</li>
-        <li>Better responsive design of the app.</li>
-        <li>[Optional] Include a user login saving the API key on a database. (Note: This point is not necessary as you could easily save your API on the explorer).</li>
+        <li>Implement the systems in a fully chatbot where you can ask the data anytime</li>
+        <li>Implement the project in a Raspberry PI as a local server</li>
     </ul>
-</div>
-
-## Main Page
-
-<div align='center'>
-    <img src="EoD-Home.png"/>
 </div>
