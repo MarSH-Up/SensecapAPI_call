@@ -1,5 +1,6 @@
 import json
 import requests
+import time
 from SensorInfo import get_sensor_name, get_sensor_value, get_sensor_unit
 from SendMessage import sendWhatsApp
 # Request Parameters
@@ -26,7 +27,32 @@ for sensor_id in sensorsInfo:
         print(
             f'Request failed with status code {response.status_code}: {response.text}')
 
-print(DataExtracted)
 
-if (DataExtracted['Air Temperature'] < 19):
-    sendWhatsApp('Its cold outside, check your plants')
+sendWhatsApp('Starting the system')
+x = True
+counter = 0
+while (x):
+    if (DataExtracted['Air Temperature'] < 19):
+        sendWhatsApp(
+            'Its cold outside, we need to cover all the citrus trees ')
+
+    if (DataExtracted['Rainfall Hourly'] > 10):
+        sendWhatsApp(
+            'Its raining hard! We need to cover the strawberries and tomatoes')
+
+    if (DataExtracted['Wind Speed'] > 15 and DataExtracted['Air Temperature'] < 19):
+        sendWhatsApp('It may be raining soon!')
+
+    if (DataExtracted['Air Humidity'] > 55 and DataExtracted['Air Temperature'] < 19):
+        sendWhatsApp(
+            'We may not need to water the plants, the air humidity is ideal')
+
+    if (DataExtracted['Air Humidity'] < 50 and DataExtracted['Air Temperature'] > 20):
+        sendWhatsApp(
+            'We need to water the plants, the air humidity is ideal')
+
+    counter = counter + 1
+    print(counter)
+    time.sleep(1400)
+    if (counter == 3):
+        break
