@@ -1,5 +1,4 @@
 from twilio.rest import Client
-
 import json
 
 # Open the JSON file and load its contents
@@ -12,12 +11,14 @@ with open('src/credentials.json') as json_file:
 def sendWhatsApp(message_string):
     account_sid = data['account_sid']
     auth_token = data['auth_token']
+    toPhone = data['receivedPhone']
+    fromPhone = data['sendPhone']
     client = Client(account_sid, auth_token)
 
     message = client.messages.create(
-        from_='whatsapp:+14155238886',
+        from_=fromPhone,
         body=message_string,
-        to='whatsapp:+5212211683177'
+        to=toPhone
     )
 
     print(message.sid)
